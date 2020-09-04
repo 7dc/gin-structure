@@ -1,7 +1,10 @@
 package entity
 
+import "go.mongodb.org/mongo-driver/bson/primitive"
+
 type Person struct {
-	Firstname string `json:"firstname" binding:"required"`
-	Lastname  string `json:"lastname" binding:"required"`
-	Age       int    `json:"age" binding:"required"`
+	_id       primitive.ObjectID `bson:"_id,omitempty"`
+	Firstname string             `bson:"firstname,omitempty"`
+	Lastname  string             `bson:"lastname,omitempty"`
+	Age       int                `bson:"age,omitempty"`
 }

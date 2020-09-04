@@ -4,12 +4,17 @@ import (
 	"net/http"
 
 	"github.com/7dc/gin-structure/app/controller"
+	"github.com/7dc/gin-structure/app/repository"
 	"github.com/7dc/gin-structure/app/service"
+	"github.com/7dc/gin-structure/config"
 	"github.com/gin-gonic/gin"
+	"go.mongodb.org/mongo-driver/mongo"
 )
 
 var (
-	personService    service.PersonService       = service.New()
+	db               *mongo.Database             = config.Connect()
+	personRepository repository.PersonRepository = repository.New(db)
+	personService    service.PersonService       = service.New(personRepository)
 	personController controller.PersonController = controller.New(personService)
 )
 
