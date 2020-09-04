@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/7dc/gin-proper-structure/app"
+	"github.com/7dc/gin-structure/app"
 )
 
 func main() {
